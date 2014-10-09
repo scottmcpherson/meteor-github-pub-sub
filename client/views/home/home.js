@@ -1,4 +1,3 @@
-
 /*****************************************************************************/
 /* Home: Event Handlers and Helpersss .js*/
 /*****************************************************************************/
@@ -11,13 +10,14 @@ Template.Home.events({
    */
 });
 
+GitHubIssues = new Meteor.Collection('gitHubIssues');
 Template.Home.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+  issues: function () {
+    Meteor.subscribe('gitHubIssues', 'git-test-project');
+    var issues = GitHubIssues.find();
+    console.log("issues", issues);
+    return issues;
+  },
 });
 
 /*****************************************************************************/
