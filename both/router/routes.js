@@ -11,4 +11,5 @@ Router.configure({
 
 Router.map(function () {
   this.route('repos', {path: '/'});
+  this.route('issues', {path: '/:name'});
 });

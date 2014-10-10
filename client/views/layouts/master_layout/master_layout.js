@@ -11,13 +11,14 @@ Template.MasterLayout.events({
    */
 });
 
+GitHubRepos = new Meteor.Collection('gitHubRepos');
+
 Template.MasterLayout.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+  repos: function () {
+    Meteor.subscribe('gitHubRepos', 'git-test-project');
+    var repos = GitHubRepos.find();
+    return repos;
+  }
 });
 
 /*****************************************************************************/

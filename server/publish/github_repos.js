@@ -13,7 +13,7 @@ Meteor.publish("gitHubRepos", function () {
     _.each(reposPublishHandles, function (repo) {
       console.log(repo);
       self.added(/*collection=*/ 'gitHubRepos', /*id=*/ repo._id, {
-        'full_name': repo.full_name
+        'name': repo.name
       });
     });
   }
@@ -22,7 +22,7 @@ Meteor.publish("gitHubRepos", function () {
 
   self.onStop(function () {
     reposPublishHandles = _.without(reposPublishHandles, self);
-    clearInterval(timerId);
+    // clearInterval(timerId);
   });
 
   // right now, gitHubAPI.compare() is hard coded to work with issues only
