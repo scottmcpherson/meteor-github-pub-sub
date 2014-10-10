@@ -10,9 +10,5 @@ Router.configure({
 });
 
 Router.map(function () {
-  /*
-    Example:
-      this.route('home', {path: '/'});
-  */
-  this.route('home', {path: '/'});
+  this.route('repos', {path: '/'});
 });
